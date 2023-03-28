@@ -375,11 +375,7 @@ class InsertComponent(Component):
             }
 
         if "presets" not in self.component_config:
-            return (
-                "No Preset query found",
-                404,
-                {"Content-Type": "text/plain"},
-            )
+            return ({"response": "No Preset query found"}, 404)
 
         filtered_preset_dictionary = {
             k: filter_preset(v) for k, v in self.presets_dict.items()
