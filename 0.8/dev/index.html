@@ -554,10 +554,10 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+</div>
 <p>Deployment options currently being considered are <a href="https://docs.docker.com/compose/install/">Docker
 Compose</a> and
 <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">Kubernetes</a>.</p>
-</div>
 <h2 id="run-locally-w-python">Run Locally w/ Python<a class="headerlink" href="#run-locally-w-python" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Set environment variables for port assignment (<code>PHARUS_PORT</code>,
@@ -601,7 +601,7 @@ Compose</a> and
 </ul>
 <h2 id="creating-mkdocs-documentation">Creating MkDocs Documentation<a class="headerlink" href="#creating-mkdocs-documentation" title="Permanent link">&para;</a></h2>
 <p>Run the following command with the appropriate parameters:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">MODE=&quot;LIVE|QA|PUSH&quot; PACKAGE=pharus UPSTREAM_REPO=https://github.com/datajoint/pharus.git HOST_UID=$(id -u) docker compose -f docs/docker-compose-docs.yaml up --build</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">MODE=&quot;LIVE|QA|PUSH&quot; PACKAGE=pharus UPSTREAM_REPO=https://github.com/datajoint/pharus.git HOST_UID=$(id -u) docker compose -f docs/docker-compose.yaml up --build</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
