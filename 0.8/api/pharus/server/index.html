@@ -2758,7 +2758,7 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
           </td>
           <td>
             <div class="doc-md-description">
-              <p>If successful, then sends back the desired operation based on the HTTP method; 
+              <p>If successful, then sends back the desired operation based on the HTTP method;
 otherwise, returns an error.</p>
             </div>
           </td>
@@ -2873,8 +2873,8 @@ otherwise, returns an error.</p>
 <li>limit: Limit of how many records per page. Defaults to <code>1000</code>.</li>
 <li>page: Page requested. Defaults to <code>1</code>.</li>
 <li>order: Sort order. Defaults to <code>KEY ASC</code>.</li>
-<li>restriction: Base64-encoded <code>AND</code> sequence of restrictions. For example, you could 
-    restrict as <code>[{"attributeName": "computer_memory", "operation": "&gt;=", "value": 16}]</code> 
+<li>restriction: Base64-encoded <code>AND</code> sequence of restrictions. For example, you could
+    restrict as <code>[{"attributeName": "computer_memory", "operation": "&gt;=", "value": 16}]</code>
     with this param set as <code>W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0a
     W9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=</code>. Defaults to no restriction.</li>
 </ul>
@@ -3580,7 +3580,7 @@ otherwise, returns an error.</p>
 <span class="sd">        table_name (str): Table name.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        If successful, then sends back the desired operation based on the HTTP method; </span>
+<span class="sd">        If successful, then sends back the desired operation based on the HTTP method;</span>
 <span class="sd">            otherwise, returns an error.</span>
 
 <span class="sd">    ## GET /schema/{schema_name}/table/{table_name}/record</span>
@@ -3656,8 +3656,8 @@ otherwise, returns an error.</p>
 <span class="sd">    * limit: Limit of how many records per page. Defaults to `1000`.</span>
 <span class="sd">    * page: Page requested. Defaults to `1`.</span>
 <span class="sd">    * order: Sort order. Defaults to `KEY ASC`.</span>
-<span class="sd">    * restriction: Base64-encoded `AND` sequence of restrictions. For example, you could </span>
-<span class="sd">        restrict as `[{&quot;attributeName&quot;: &quot;computer_memory&quot;, &quot;operation&quot;: &quot;&gt;=&quot;, &quot;value&quot;: 16}]` </span>
+<span class="sd">    * restriction: Base64-encoded `AND` sequence of restrictions. For example, you could</span>
+<span class="sd">        restrict as `[{&quot;attributeName&quot;: &quot;computer_memory&quot;, &quot;operation&quot;: &quot;&gt;=&quot;, &quot;value&quot;: 16}]`</span>
 <span class="sd">        with this param set as `W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0a</span>
 <span class="sd">        W9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=`. Defaults to no restriction.</span>
 
@@ -5142,7 +5142,7 @@ returns an error.</p>
     </tbody>
   </table>
       <h4 id="pharus.server.dependency--get-schemaschema_nametabletable_namedependency">GET /schema/{schema_name}/table/{table_name}/dependency<a class="headerlink" href="#pharus.server.dependency--get-schemaschema_nametabletable_namedependency" title="Permanent link">&para;</a></h4>
-<p>Route to get the metadata in relation to the dependent records associated with a 
+<p>Route to get the metadata in relation to the dependent records associated with a
     restricted subset of a table.</p>
 <h5 id="pharus.server.dependency--example-request">Example request:<a class="headerlink" href="#pharus.server.dependency--example-request" title="Permanent link">&para;</a></h5>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -5150,7 +5150,7 @@ returns an error.</p>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">GET /schema/alpha_company/table/Computer/dependency?restriction=</span>
-<span class="err">    W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ= </span>
+<span class="err">    W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ=</span>
 <span class="err">    HTTP/1.1</span>
 <span class="err">Host: fakeservices.datajoint.io</span>
 <span class="err">Authorization: Bearer &lt;token&gt;</span>
@@ -5215,7 +5215,7 @@ returns an error.</p>
 <li>table_name: Table name.</li>
 <li>restriction: Base64-encoded <code>AND</code> sequence of restrictions. For example, you could
     restrict as <code>[{"attributeName": "computer_memory", "operation": "&gt;=", "value": 16}]</code>
-    with this param set as 
+    with this param set as
     <code>W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ=</code>.
     Defaults to no restriction.</li>
 </ul>
@@ -5369,14 +5369,14 @@ returns an error.</p>
 
 <span class="sd">    ## GET /schema/{schema_name}/table/{table_name}/dependency</span>
 
-<span class="sd">    Route to get the metadata in relation to the dependent records associated with a </span>
+<span class="sd">    Route to get the metadata in relation to the dependent records associated with a</span>
 <span class="sd">        restricted subset of a table.</span>
 
 <span class="sd">    ### Example request:</span>
 
 <span class="sd">    ```http</span>
 <span class="sd">    GET /schema/alpha_company/table/Computer/dependency?restriction=</span>
-<span class="sd">        W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ= </span>
+<span class="sd">        W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ=</span>
 <span class="sd">        HTTP/1.1</span>
 <span class="sd">    Host: fakeservices.datajoint.io</span>
 <span class="sd">    Authorization: Bearer &lt;token&gt;</span>
@@ -5423,7 +5423,7 @@ returns an error.</p>
 <span class="sd">    * table_name: Table name.</span>
 <span class="sd">    * restriction: Base64-encoded ``AND`` sequence of restrictions. For example, you could</span>
 <span class="sd">        restrict as ``[{&quot;attributeName&quot;: &quot;computer_memory&quot;, &quot;operation&quot;: &quot;&gt;=&quot;, &quot;value&quot;: 16}]``</span>
-<span class="sd">        with this param set as </span>
+<span class="sd">        with this param set as</span>
 <span class="sd">        ``W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ=``.</span>
 <span class="sd">        Defaults to no restriction.</span>
 
