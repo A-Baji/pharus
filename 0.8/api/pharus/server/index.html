@@ -1637,23 +1637,22 @@
 
 <details class="warning" open>
   <summary>Warning</summary>
-  <p>Currently, this implementation exposes user database credentials as plain text in
-POST body once and stores it within a bearer token as Base64 encoded for
-subsequent requests. That is how the server is able to submit queries on user's
-behalf. Due to this, it is required that remote hosts expose the server only
-under HTTPS to ensure end-to-end encryption. Sending passwords in plain text over
-HTTPS in POST request body is common and utilized by companies such as GitHub
-(2021) and Chase Bank (2021). On server side, there is no caching, logging, or
-storage of received passwords or tokens and thus available only briefly in
-memory. This means the primary vulnerable point is client side. Users should be
-responsible with their passwords and bearer tokens treating them as
-one-in-the-same. Be aware that if your client system happens to be compromised,
-a bad actor could monitor your outgoing network requests and capture/log your
-credentials. However, in such a terrible scenario, a bad actor would not only
-collect credentials for your DataJoint database but also other sites such as
-github.com, chase.com, etc. Please be responsible and vigilant with credentials
-and tokens on client side systems. Improvements to the above strategy is
-currently being tracked in <a href="https://github.com/datajoint/pharus/issues/82">https://github.com/datajoint/pharus/issues/82</a>.</p>
+  <p>Currently, this implementation exposes user database credentials as plain
+text in POST body once and stores it within a bearer token as Base64 encoded for
+subsequent requests. That is how the server is able to submit queries on user's behalf.
+Due to this, it is required that remote hosts expose the server only under HTTPS to ensure
+end-to-end encryption. Sending passwords in plain text over HTTPS in POST request body is
+common and utilized by companies such as GitHub (2021) and Chase Bank (2021). On server
+side, there is no caching, logging, or storage of received passwords or tokens and thus
+available only briefly in memory. This means the primary vulnerable point is client side.
+Users should be responsible with their passwords and bearer tokens treating them as
+one-in-the-same. Be aware that if your client system happens to be compromised, a bad
+actor could monitor your outgoing network requests and capture/log your credentials.
+However, in such a terrible scenario, a bad actor would not only collect credentials for
+your DataJoint database but also other sites such as github.com, chase.com, etc. Please be
+responsible and vigilant with credentials and tokens on client side systems. Improvements
+to the above strategy is currently being tracked in
+<a href="https://github.com/datajoint/pharus/issues/82">https://github.com/datajoint/pharus/issues/82</a>.</p>
 </details>
 
 
@@ -1734,8 +1733,7 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
 <h6 id="pharus.server.login--status-codes">Status Codes<a class="headerlink" href="#pharus.server.login--status-codes" title="Permanent link">&para;</a></h6>
 <ul>
 <li>200 OK: No error.</li>
-<li>500 Internal Server Error: Unexpected error encountered.
-    Returns the error message as a string.</li>
+<li>500 Internal Server Error: Unexpected error encountered. Returns the error message as a string.</li>
 </ul>
 
           <details class="quote">
@@ -1892,31 +1890,28 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
 <span class="normal">290</span>
 <span class="normal">291</span>
 <span class="normal">292</span>
-<span class="normal">293</span>
-<span class="normal">294</span>
-<span class="normal">295</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PHARUS_PREFIX&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/login&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="normal">293</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PHARUS_PREFIX&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/login&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">login</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Handler for ``/login`` route.</span>
 
 <span class="sd">    Warning:</span>
-<span class="sd">        Currently, this implementation exposes user database credentials as plain text in</span>
-<span class="sd">        POST body once and stores it within a bearer token as Base64 encoded for</span>
-<span class="sd">        subsequent requests. That is how the server is able to submit queries on user&#39;s</span>
-<span class="sd">        behalf. Due to this, it is required that remote hosts expose the server only</span>
-<span class="sd">        under HTTPS to ensure end-to-end encryption. Sending passwords in plain text over</span>
-<span class="sd">        HTTPS in POST request body is common and utilized by companies such as GitHub</span>
-<span class="sd">        (2021) and Chase Bank (2021). On server side, there is no caching, logging, or</span>
-<span class="sd">        storage of received passwords or tokens and thus available only briefly in</span>
-<span class="sd">        memory. This means the primary vulnerable point is client side. Users should be</span>
-<span class="sd">        responsible with their passwords and bearer tokens treating them as</span>
-<span class="sd">        one-in-the-same. Be aware that if your client system happens to be compromised,</span>
-<span class="sd">        a bad actor could monitor your outgoing network requests and capture/log your</span>
-<span class="sd">        credentials. However, in such a terrible scenario, a bad actor would not only</span>
-<span class="sd">        collect credentials for your DataJoint database but also other sites such as</span>
-<span class="sd">        github.com, chase.com, etc. Please be responsible and vigilant with credentials</span>
-<span class="sd">        and tokens on client side systems. Improvements to the above strategy is</span>
-<span class="sd">        currently being tracked in https://github.com/datajoint/pharus/issues/82.</span>
+<span class="sd">        Currently, this implementation exposes user database credentials as plain</span>
+<span class="sd">        text in POST body once and stores it within a bearer token as Base64 encoded for</span>
+<span class="sd">        subsequent requests. That is how the server is able to submit queries on user&#39;s behalf.</span>
+<span class="sd">        Due to this, it is required that remote hosts expose the server only under HTTPS to ensure</span>
+<span class="sd">        end-to-end encryption. Sending passwords in plain text over HTTPS in POST request body is</span>
+<span class="sd">        common and utilized by companies such as GitHub (2021) and Chase Bank (2021). On server</span>
+<span class="sd">        side, there is no caching, logging, or storage of received passwords or tokens and thus</span>
+<span class="sd">        available only briefly in memory. This means the primary vulnerable point is client side.</span>
+<span class="sd">        Users should be responsible with their passwords and bearer tokens treating them as</span>
+<span class="sd">        one-in-the-same. Be aware that if your client system happens to be compromised, a bad</span>
+<span class="sd">        actor could monitor your outgoing network requests and capture/log your credentials.</span>
+<span class="sd">        However, in such a terrible scenario, a bad actor would not only collect credentials for</span>
+<span class="sd">        your DataJoint database but also other sites such as github.com, chase.com, etc. Please be</span>
+<span class="sd">        responsible and vigilant with credentials and tokens on client side systems. Improvements</span>
+<span class="sd">        to the above strategy is currently being tracked in</span>
+<span class="sd">        https://github.com/datajoint/pharus/issues/82.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Function output is an encoded JWT if successful, otherwise return error message</span>
@@ -1967,8 +1962,7 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
 
 <span class="sd">    #### Status Codes</span>
 <span class="sd">    * 200 OK: No error.</span>
-<span class="sd">    * 500 Internal Server Error: Unexpected error encountered.</span>
-<span class="sd">        Returns the error message as a string.</span>
+<span class="sd">    * 500 Internal Server Error: Unexpected error encountered. Returns the error message as a string.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
         <span class="c1"># Try to login in with the database connection info, if true then create jwt key</span>
@@ -2180,13 +2174,14 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
 <h6 id="pharus.server.schema--status-codes">Status Codes<a class="headerlink" href="#pharus.server.schema--status-codes" title="Permanent link">&para;</a></h6>
 <ul>
 <li>200 OK: No error.</li>
-<li>500 Internal Server Error: Unexpected error encountered.
-    Returns the error message as a string.</li>
+<li>500 Internal Server Error: Unexpected error encountered. Returns the error message as a string.</li>
 </ul>
 
           <details class="quote">
             <summary>Source code in <code>pharus/server.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">298</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
 <span class="normal">299</span>
 <span class="normal">300</span>
 <span class="normal">301</span>
@@ -2250,10 +2245,7 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
 <span class="normal">359</span>
 <span class="normal">360</span>
 <span class="normal">361</span>
-<span class="normal">362</span>
-<span class="normal">363</span>
-<span class="normal">364</span>
-<span class="normal">365</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PHARUS_PREFIX&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/schema&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="normal">362</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PHARUS_PREFIX&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/schema&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
 <span class="nd">@protected_route</span>
 <span class="k">def</span> <span class="nf">schema</span><span class="p">(</span><span class="n">connection</span><span class="p">:</span> <span class="n">dj</span><span class="o">.</span><span class="n">Connection</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2310,8 +2302,7 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
 
 <span class="sd">    #### Status Codes</span>
 <span class="sd">    * 200 OK: No error.</span>
-<span class="sd">    * 500 Internal Server Error: Unexpected error encountered.</span>
-<span class="sd">        Returns the error message as a string.</span>
+<span class="sd">    * 500 Internal Server Error: Unexpected error encountered. Returns the error message as a string.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;HEAD&quot;</span><span class="p">}:</span>
@@ -2486,13 +2477,15 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
 <h6 id="pharus.server.table--status-codes">Status Codes<a class="headerlink" href="#pharus.server.table--status-codes" title="Permanent link">&para;</a></h6>
 <ul>
 <li>200 OK: No error.</li>
-<li>500 Internal Server Error: Unexpected error encountered.
-    Returns the error message as a string.</li>
+<li>500 Internal Server Error: Unexpected error encountered. Returns the error message as a string.</li>
 </ul>
 
           <details class="quote">
             <summary>Source code in <code>pharus/server.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">368</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
 <span class="normal">369</span>
 <span class="normal">370</span>
 <span class="normal">371</span>
@@ -2570,11 +2563,7 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
 <span class="normal">443</span>
 <span class="normal">444</span>
 <span class="normal">445</span>
-<span class="normal">446</span>
-<span class="normal">447</span>
-<span class="normal">448</span>
-<span class="normal">449</span>
-<span class="normal">450</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
+<span class="normal">446</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PHARUS_PREFIX&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/schema/&lt;schema_name&gt;/table&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">]</span>
 <span class="p">)</span>
 <span class="nd">@protected_route</span>
@@ -2648,8 +2637,7 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
 
 <span class="sd">    #### Status Codes</span>
 <span class="sd">    * 200 OK: No error.</span>
-<span class="sd">    * 500 Internal Server Error: Unexpected error encountered.</span>
-<span class="sd">        Returns the error message as a string.</span>
+<span class="sd">    * 500 Internal Server Error: Unexpected error encountered. Returns the error message as a string.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;HEAD&quot;</span><span class="p">}:</span>
         <span class="k">try</span><span class="p">:</span>
@@ -2758,8 +2746,7 @@ currently being tracked in <a href="https://github.com/datajoint/pharus/issues/8
           </td>
           <td>
             <div class="doc-md-description">
-              <p>If successful, then sends back the desired operation based on the HTTP method;
-otherwise, returns an error.</p>
+              <p>If successful, then sends back the desired operation based on the HTTP method; otherwise, returns an error.</p>
             </div>
           </td>
         </tr>
@@ -2770,13 +2757,9 @@ otherwise, returns an error.</p>
 <h5 id="pharus.server.record--example-request">Example request:<a class="headerlink" href="#pharus.server.record--example-request" title="Permanent link">&para;</a></h5>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">GET /schema/alpha_company/table/Computer/record?limit=1&amp;page=2&amp;order=computer_id%20DESC&amp;</span>
-<span class="err">    restriction=W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49I</span>
-<span class="err">    iwgInZhbHVlIjogMTZ9XQo= HTTP/1.1</span>
-<span class="err">Host: fakeservices.datajoint.io</span>
-<span class="err">Authorization: Bearer &lt;token&gt;</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">GET</span> <span class="nn">/schema/alpha_company/table/Computer/record?limit=1&amp;page=2&amp;order=computer_id%20DESC&amp;restriction=W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">fakeservices.datajoint.io</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer &lt;token&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h5 id="pharus.server.record--example-successful-response">Example successful response:<a class="headerlink" href="#pharus.server.record--example-successful-response" title="Permanent link">&para;</a></h5>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2873,10 +2856,7 @@ otherwise, returns an error.</p>
 <li>limit: Limit of how many records per page. Defaults to <code>1000</code>.</li>
 <li>page: Page requested. Defaults to <code>1</code>.</li>
 <li>order: Sort order. Defaults to <code>KEY ASC</code>.</li>
-<li>restriction: Base64-encoded <code>AND</code> sequence of restrictions. For example, you could
-    restrict as <code>[{"attributeName": "computer_memory", "operation": "&gt;=", "value": 16}]</code>
-    with this param set as <code>W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0a
-    W9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=</code>. Defaults to no restriction.</li>
+<li>restriction: Base64-encoded <code>AND</code> sequence of restrictions. For example, you could restrict as <code>[{"attributeName": "computer_memory", "operation": "&gt;=", "value": 16}]</code> with this param set as <code>W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=</code>. Defaults to no restriction.</li>
 </ul>
 <h6 id="pharus.server.record--request-headers">Request Headers<a class="headerlink" href="#pharus.server.record--request-headers" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3075,13 +3055,9 @@ otherwise, returns an error.</p>
 <h5 id="pharus.server.record--example-request_3">Example request:<a class="headerlink" href="#pharus.server.record--example-request_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">DELETE /schema/alpha_company/table/Computer/record?cascade=false&amp;restriction=</span>
-<span class="err">    W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlI</span>
-<span class="err">    jogMTZ9XQo= HTTP/1.1</span>
-<span class="err">Host: fakeservices.datajoint.io</span>
-<span class="err">Authorization: Bearer &lt;token&gt;</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">DELETE</span> <span class="nn">/schema/alpha_company/table/Computer/record?cascade=false&amp;restriction=W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">fakeservices.datajoint.io</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer &lt;token&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h5 id="pharus.server.record--example-successful-response_3">Example successful response:<a class="headerlink" href="#pharus.server.record--example-successful-response_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3167,7 +3143,11 @@ otherwise, returns an error.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/server.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">453</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
 <span class="normal">454</span>
 <span class="normal">455</span>
 <span class="normal">456</span>
@@ -3548,19 +3528,7 @@ otherwise, returns an error.</p>
 <span class="normal">831</span>
 <span class="normal">832</span>
 <span class="normal">833</span>
-<span class="normal">834</span>
-<span class="normal">835</span>
-<span class="normal">836</span>
-<span class="normal">837</span>
-<span class="normal">838</span>
-<span class="normal">839</span>
-<span class="normal">840</span>
-<span class="normal">841</span>
-<span class="normal">842</span>
-<span class="normal">843</span>
-<span class="normal">844</span>
-<span class="normal">845</span>
-<span class="normal">846</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
+<span class="normal">834</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PHARUS_PREFIX&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/schema/&lt;schema_name&gt;/table/&lt;table_name&gt;/record&quot;</span><span class="p">,</span>
     <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;PATCH&quot;</span><span class="p">,</span> <span class="s2">&quot;DELETE&quot;</span><span class="p">],</span>
 <span class="p">)</span>
@@ -3580,8 +3548,7 @@ otherwise, returns an error.</p>
 <span class="sd">        table_name (str): Table name.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        If successful, then sends back the desired operation based on the HTTP method;</span>
-<span class="sd">            otherwise, returns an error.</span>
+<span class="sd">        If successful, then sends back the desired operation based on the HTTP method; otherwise, returns an error.</span>
 
 <span class="sd">    ## GET /schema/{schema_name}/table/{table_name}/record</span>
 
@@ -3590,9 +3557,7 @@ otherwise, returns an error.</p>
 <span class="sd">    ### Example request:</span>
 
 <span class="sd">    ```http</span>
-<span class="sd">    GET /schema/alpha_company/table/Computer/record?limit=1&amp;page=2&amp;order=computer_id%20DESC&amp;</span>
-<span class="sd">        restriction=W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49I</span>
-<span class="sd">        iwgInZhbHVlIjogMTZ9XQo= HTTP/1.1</span>
+<span class="sd">    GET /schema/alpha_company/table/Computer/record?limit=1&amp;page=2&amp;order=computer_id%20DESC&amp;restriction=W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo= HTTP/1.1</span>
 <span class="sd">    Host: fakeservices.datajoint.io</span>
 <span class="sd">    Authorization: Bearer &lt;token&gt;</span>
 <span class="sd">    ```</span>
@@ -3656,10 +3621,7 @@ otherwise, returns an error.</p>
 <span class="sd">    * limit: Limit of how many records per page. Defaults to `1000`.</span>
 <span class="sd">    * page: Page requested. Defaults to `1`.</span>
 <span class="sd">    * order: Sort order. Defaults to `KEY ASC`.</span>
-<span class="sd">    * restriction: Base64-encoded `AND` sequence of restrictions. For example, you could</span>
-<span class="sd">        restrict as `[{&quot;attributeName&quot;: &quot;computer_memory&quot;, &quot;operation&quot;: &quot;&gt;=&quot;, &quot;value&quot;: 16}]`</span>
-<span class="sd">        with this param set as `W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0a</span>
-<span class="sd">        W9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=`. Defaults to no restriction.</span>
+<span class="sd">    * restriction: Base64-encoded `AND` sequence of restrictions. For example, you could restrict as `[{&quot;attributeName&quot;: &quot;computer_memory&quot;, &quot;operation&quot;: &quot;&gt;=&quot;, &quot;value&quot;: 16}]` with this param set as `W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=`. Defaults to no restriction.</span>
 
 <span class="sd">    #### Request Headers</span>
 <span class="sd">    * Authorization: Bearer &lt;OAuth2_token\&gt;</span>
@@ -3809,9 +3771,7 @@ otherwise, returns an error.</p>
 <span class="sd">    ### Example request:</span>
 
 <span class="sd">    ```http</span>
-<span class="sd">    DELETE /schema/alpha_company/table/Computer/record?cascade=false&amp;restriction=</span>
-<span class="sd">        W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlI</span>
-<span class="sd">        jogMTZ9XQo= HTTP/1.1</span>
+<span class="sd">    DELETE /schema/alpha_company/table/Computer/record?cascade=false&amp;restriction=W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo= HTTP/1.1</span>
 <span class="sd">    Host: fakeservices.datajoint.io</span>
 <span class="sd">    Authorization: Bearer &lt;token&gt;</span>
 <span class="sd">    ```</span>
@@ -4055,8 +4015,7 @@ otherwise, returns an error.</p>
           </td>
           <td>
             <div class="doc-md-description">
-              <p>If successful, then sends back the definition for the table; otherwise,
-returns an error.</p>
+              <p>If successful, then sends back the definition for the table; otherwise, returns an error.</p>
             </div>
           </td>
         </tr>
@@ -4138,7 +4097,19 @@ computer_accessories=null : longblob             # included additional accessori
 
           <details class="quote">
             <summary>Source code in <code>pharus/server.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">849</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">837</span>
+<span class="normal">838</span>
+<span class="normal">839</span>
+<span class="normal">840</span>
+<span class="normal">841</span>
+<span class="normal">842</span>
+<span class="normal">843</span>
+<span class="normal">844</span>
+<span class="normal">845</span>
+<span class="normal">846</span>
+<span class="normal">847</span>
+<span class="normal">848</span>
+<span class="normal">849</span>
 <span class="normal">850</span>
 <span class="normal">851</span>
 <span class="normal">852</span>
@@ -4212,20 +4183,7 @@ computer_accessories=null : longblob             # included additional accessori
 <span class="normal">920</span>
 <span class="normal">921</span>
 <span class="normal">922</span>
-<span class="normal">923</span>
-<span class="normal">924</span>
-<span class="normal">925</span>
-<span class="normal">926</span>
-<span class="normal">927</span>
-<span class="normal">928</span>
-<span class="normal">929</span>
-<span class="normal">930</span>
-<span class="normal">931</span>
-<span class="normal">932</span>
-<span class="normal">933</span>
-<span class="normal">934</span>
-<span class="normal">935</span>
-<span class="normal">936</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
+<span class="normal">923</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PHARUS_PREFIX&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/schema/&lt;schema_name&gt;/table/&lt;table_name&gt;/definition&quot;</span><span class="p">,</span>
     <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">],</span>
 <span class="p">)</span>
@@ -4244,8 +4202,7 @@ computer_accessories=null : longblob             # included additional accessori
 <span class="sd">        table_name (str): Table name.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        If successful, then sends back the definition for the table; otherwise,</span>
-<span class="sd">            returns an error.</span>
+<span class="sd">        If successful, then sends back the definition for the table; otherwise, returns an error.</span>
 
 <span class="sd">    ## GET /schema/{schema_name}/table/{table_name}/definition</span>
 
@@ -4414,8 +4371,7 @@ computer_accessories=null : longblob             # included additional accessori
           </td>
           <td>
             <div class="doc-md-description">
-              <p>If successful, then sends back a dictionary of table attributes; otherwise,
-returns an error.</p>
+              <p>If successful, then sends back a dictionary of table attributes; otherwise, returns an error.</p>
             </div>
           </td>
         </tr>
@@ -4667,7 +4623,20 @@ returns an error.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/server.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 939</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 926</span>
+<span class="normal"> 927</span>
+<span class="normal"> 928</span>
+<span class="normal"> 929</span>
+<span class="normal"> 930</span>
+<span class="normal"> 931</span>
+<span class="normal"> 932</span>
+<span class="normal"> 933</span>
+<span class="normal"> 934</span>
+<span class="normal"> 935</span>
+<span class="normal"> 936</span>
+<span class="normal"> 937</span>
+<span class="normal"> 938</span>
+<span class="normal"> 939</span>
 <span class="normal"> 940</span>
 <span class="normal"> 941</span>
 <span class="normal"> 942</span>
@@ -4836,21 +4805,7 @@ returns an error.</p>
 <span class="normal">1105</span>
 <span class="normal">1106</span>
 <span class="normal">1107</span>
-<span class="normal">1108</span>
-<span class="normal">1109</span>
-<span class="normal">1110</span>
-<span class="normal">1111</span>
-<span class="normal">1112</span>
-<span class="normal">1113</span>
-<span class="normal">1114</span>
-<span class="normal">1115</span>
-<span class="normal">1116</span>
-<span class="normal">1117</span>
-<span class="normal">1118</span>
-<span class="normal">1119</span>
-<span class="normal">1120</span>
-<span class="normal">1121</span>
-<span class="normal">1122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
+<span class="normal">1108</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PHARUS_PREFIX&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/schema/&lt;schema_name&gt;/table/&lt;table_name&gt;/attribute&quot;</span><span class="p">,</span>
     <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">],</span>
 <span class="p">)</span>
@@ -4869,8 +4824,7 @@ returns an error.</p>
 <span class="sd">        table_name (str): Table name.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        If successful, then sends back a dictionary of table attributes; otherwise,</span>
-<span class="sd">            returns an error.</span>
+<span class="sd">        If successful, then sends back a dictionary of table attributes; otherwise, returns an error.</span>
 
 <span class="sd">    ## GET /schema/{schema_name}/table/{table_name}/attribute</span>
 
@@ -5142,18 +5096,13 @@ returns an error.</p>
     </tbody>
   </table>
       <h4 id="pharus.server.dependency--get-schemaschema_nametabletable_namedependency">GET /schema/{schema_name}/table/{table_name}/dependency<a class="headerlink" href="#pharus.server.dependency--get-schemaschema_nametabletable_namedependency" title="Permanent link">&para;</a></h4>
-<p>Route to get the metadata in relation to the dependent records associated with a
-    restricted subset of a table.</p>
+<p>Route to get the metadata in relation to the dependent records associated with a restricted subset of a table.</p>
 <h5 id="pharus.server.dependency--example-request">Example request:<a class="headerlink" href="#pharus.server.dependency--example-request" title="Permanent link">&para;</a></h5>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">GET /schema/alpha_company/table/Computer/dependency?restriction=</span>
-<span class="err">    W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ=</span>
-<span class="err">    HTTP/1.1</span>
-<span class="err">Host: fakeservices.datajoint.io</span>
-<span class="err">Authorization: Bearer &lt;token&gt;</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">GET</span> <span class="nn">/schema/alpha_company/table/Computer/dependency?restriction=W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">fakeservices.datajoint.io</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer &lt;token&gt;</span>
 </code></pre></div></td></tr></table></div>
 <h5 id="pharus.server.dependency--example-successful-response">Example successful response:<a class="headerlink" href="#pharus.server.dependency--example-successful-response" title="Permanent link">&para;</a></h5>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -5213,10 +5162,8 @@ returns an error.</p>
 <ul>
 <li>schema_name: Schema name.</li>
 <li>table_name: Table name.</li>
-<li>restriction: Base64-encoded <code>AND</code> sequence of restrictions. For example, you could
-    restrict as <code>[{"attributeName": "computer_memory", "operation": "&gt;=", "value": 16}]</code>
-    with this param set as
-    <code>W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ=</code>.
+<li>restriction: Base64-encoded <code>AND</code> sequence of restrictions. For example, you could restrict as <code>[{"attributeName": "computer_memory", "operation": "&gt;=", "value": 16}]</code> with this param set as
+    <code>W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=</code>.
     Defaults to no restriction.</li>
 </ul>
 <h6 id="pharus.server.dependency--request-headers">Request Headers<a class="headerlink" href="#pharus.server.dependency--request-headers" title="Permanent link">&para;</a></h6>
@@ -5236,7 +5183,21 @@ returns an error.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/server.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1151</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1137</span>
+<span class="normal">1138</span>
+<span class="normal">1139</span>
+<span class="normal">1140</span>
+<span class="normal">1141</span>
+<span class="normal">1142</span>
+<span class="normal">1143</span>
+<span class="normal">1144</span>
+<span class="normal">1145</span>
+<span class="normal">1146</span>
+<span class="normal">1147</span>
+<span class="normal">1148</span>
+<span class="normal">1149</span>
+<span class="normal">1150</span>
+<span class="normal">1151</span>
 <span class="normal">1152</span>
 <span class="normal">1153</span>
 <span class="normal">1154</span>
@@ -5326,26 +5287,7 @@ returns an error.</p>
 <span class="normal">1238</span>
 <span class="normal">1239</span>
 <span class="normal">1240</span>
-<span class="normal">1241</span>
-<span class="normal">1242</span>
-<span class="normal">1243</span>
-<span class="normal">1244</span>
-<span class="normal">1245</span>
-<span class="normal">1246</span>
-<span class="normal">1247</span>
-<span class="normal">1248</span>
-<span class="normal">1249</span>
-<span class="normal">1250</span>
-<span class="normal">1251</span>
-<span class="normal">1252</span>
-<span class="normal">1253</span>
-<span class="normal">1254</span>
-<span class="normal">1255</span>
-<span class="normal">1256</span>
-<span class="normal">1257</span>
-<span class="normal">1258</span>
-<span class="normal">1259</span>
-<span class="normal">1260</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
+<span class="normal">1241</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PHARUS_PREFIX&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/schema/&lt;schema_name&gt;/table/&lt;table_name&gt;/dependency&quot;</span><span class="p">,</span>
     <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">],</span>
 <span class="p">)</span>
@@ -5369,15 +5311,12 @@ returns an error.</p>
 
 <span class="sd">    ## GET /schema/{schema_name}/table/{table_name}/dependency</span>
 
-<span class="sd">    Route to get the metadata in relation to the dependent records associated with a</span>
-<span class="sd">        restricted subset of a table.</span>
+<span class="sd">    Route to get the metadata in relation to the dependent records associated with a restricted subset of a table.</span>
 
 <span class="sd">    ### Example request:</span>
 
 <span class="sd">    ```http</span>
-<span class="sd">    GET /schema/alpha_company/table/Computer/dependency?restriction=</span>
-<span class="sd">        W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ=</span>
-<span class="sd">        HTTP/1.1</span>
+<span class="sd">    GET /schema/alpha_company/table/Computer/dependency?restriction=W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo= HTTP/1.1</span>
 <span class="sd">    Host: fakeservices.datajoint.io</span>
 <span class="sd">    Authorization: Bearer &lt;token&gt;</span>
 <span class="sd">    ```</span>
@@ -5421,10 +5360,8 @@ returns an error.</p>
 <span class="sd">    #### Query Parameters</span>
 <span class="sd">    * schema_name: Schema name.</span>
 <span class="sd">    * table_name: Table name.</span>
-<span class="sd">    * restriction: Base64-encoded ``AND`` sequence of restrictions. For example, you could</span>
-<span class="sd">        restrict as ``[{&quot;attributeName&quot;: &quot;computer_memory&quot;, &quot;operation&quot;: &quot;&gt;=&quot;, &quot;value&quot;: 16}]``</span>
-<span class="sd">        with this param set as</span>
-<span class="sd">        ``W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZ=``.</span>
+<span class="sd">    * restriction: Base64-encoded ``AND`` sequence of restrictions. For example, you could restrict as ``[{&quot;attributeName&quot;: &quot;computer_memory&quot;, &quot;operation&quot;: &quot;&gt;=&quot;, &quot;value&quot;: 16}]`` with this param set as</span>
+<span class="sd">        ``W3siYXR0cmlidXRlTmFtZSI6ICJjb21wdXRlcl9tZW1vcnkiLCAib3BlcmF0aW9uIjogIj49IiwgInZhbHVlIjogMTZ9XQo=``.</span>
 <span class="sd">        Defaults to no restriction.</span>
 
 <span class="sd">    #### Request Headers</span>
@@ -5483,11 +5420,11 @@ returns an error.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/server.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1263</span>
-<span class="normal">1264</span>
-<span class="normal">1265</span>
-<span class="normal">1266</span>
-<span class="normal">1267</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1244</span>
+<span class="normal">1245</span>
+<span class="normal">1246</span>
+<span class="normal">1247</span>
+<span class="normal">1248</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Starts API server.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

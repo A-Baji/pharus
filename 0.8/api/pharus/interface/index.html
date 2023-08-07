@@ -1097,10 +1097,7 @@
 <span class="normal">493</span>
 <span class="normal">494</span>
 <span class="normal">495</span>
-<span class="normal">496</span>
-<span class="normal">497</span>
-<span class="normal">498</span>
-<span class="normal">499</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">_DJConnector</span><span class="p">:</span>
+<span class="normal">496</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">_DJConnector</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Primary connector that communicates with a DataJoint database server.&quot;&quot;&quot;</span>
 
     <span class="nd">@staticmethod</span>
@@ -1143,8 +1140,7 @@
 <span class="sd">            schema_name (str): Name of schema to list all tables from</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Contains a key for each table type where values are the respective</span>
-<span class="sd">                list of table names</span>
+<span class="sd">            Contains a key for each table type where values are the respective list of table names</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># Get list of tables names</span>
@@ -1416,8 +1412,8 @@
 <span class="sd">            connection: User&#39;s DataJoint connection object.</span>
 <span class="sd">            schema_name: Name of the schema.</span>
 <span class="sd">            table_name: Table name under the given schema; must be in camel case.</span>
-<span class="sd">            restriction: Sequence of filters as a list of dictionaries with keys</span>
-<span class="sd">                &quot;attributeName&quot;, &quot;operation&quot;, and &quot;value&quot; defined, defaults to [].</span>
+<span class="sd">            restriction: Sequence of filters as a list of dictionaries with keys &quot;attributeName&quot;,</span>
+<span class="sd">                &quot;operation&quot;, and &quot;value&quot; defined, defaults to [].</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            List of tables that are dependent on specific records.</span>
@@ -1531,8 +1527,7 @@
 
 <span class="sd">        Args:</span>
 <span class="sd">            schema_virtual_module: Virtual module for accessing the schema.</span>
-<span class="sd">            table_name: Name of the table; for part tables, it should</span>
-<span class="sd">                be in the format ``Parent.Part``.</span>
+<span class="sd">            table_name: Name of the table; for part tables, it should be in the format ``Parent.Part``.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            DataJoint table object of the specified table.</span>
@@ -1553,9 +1548,8 @@
 <span class="sd">        Converts an attribute filter to a DataJoint-compatible restriction.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            attribute_filter (dict): A filter as a dictionary with keys</span>
-<span class="sd">                ``attributeName``, ``operation``, and ``value`` defined.</span>
-<span class="sd">                Defaults to an empty dictionary.</span>
+<span class="sd">            attribute_filter (dict): A filter as a dictionary with keys ``attributeName``, ``operation``,</span>
+<span class="sd">                and ``value`` defined. Defaults to an empty dictionary.</span>
 <span class="sd">            attribute_type (str): Attribute type.</span>
 
 <span class="sd">        Returns:</span>
@@ -1825,8 +1819,7 @@
           </td>
           <td>
             <div class="doc-md-description">
-              <p>Contains a key for each table type where values are the respective
-list of table names</p>
+              <p>Contains a key for each table type where values are the respective list of table names</p>
             </div>
           </td>
         </tr>
@@ -1880,8 +1873,7 @@ list of table names</p>
 <span class="normal">87</span>
 <span class="normal">88</span>
 <span class="normal">89</span>
-<span class="normal">90</span>
-<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_list_tables</span><span class="p">(</span>
     <span class="n">connection</span><span class="p">:</span> <span class="n">dj</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span>
     <span class="n">schema_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1894,8 +1886,7 @@ list of table names</p>
 <span class="sd">        schema_name (str): Name of schema to list all tables from</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Contains a key for each table type where values are the respective</span>
-<span class="sd">            list of table names</span>
+<span class="sd">        Contains a key for each table type where values are the respective list of table names</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Get list of tables names</span>
@@ -2076,7 +2067,8 @@ list of table names</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/interface.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 93</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 92</span>
+<span class="normal"> 93</span>
 <span class="normal"> 94</span>
 <span class="normal"> 95</span>
 <span class="normal"> 96</span>
@@ -2190,8 +2182,7 @@ list of table names</p>
 <span class="normal">204</span>
 <span class="normal">205</span>
 <span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">207</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_fetch_records</span><span class="p">(</span>
     <span class="n">query</span><span class="p">,</span>
     <span class="n">restriction</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[],</span>
@@ -2414,7 +2405,8 @@ included as part of the returned attributes.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/interface.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">210</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">209</span>
+<span class="normal">210</span>
 <span class="normal">211</span>
 <span class="normal">212</span>
 <span class="normal">213</span>
@@ -2471,8 +2463,7 @@ included as part of the returned attributes.</p>
 <span class="normal">264</span>
 <span class="normal">265</span>
 <span class="normal">266</span>
-<span class="normal">267</span>
-<span class="normal">268</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">267</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_get_attributes</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">include_unique_values</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Method to get primary and secondary attributes of a query.</span>
@@ -2645,7 +2636,8 @@ included as part of the returned attributes.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/interface.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">270</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">269</span>
+<span class="normal">270</span>
 <span class="normal">271</span>
 <span class="normal">272</span>
 <span class="normal">273</span>
@@ -2666,8 +2658,7 @@ included as part of the returned attributes.</p>
 <span class="normal">288</span>
 <span class="normal">289</span>
 <span class="normal">290</span>
-<span class="normal">291</span>
-<span class="normal">292</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">291</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_get_table_definition</span><span class="p">(</span>
     <span class="n">connection</span><span class="p">:</span> <span class="n">dj</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span>
     <span class="n">schema_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -2794,7 +2785,8 @@ included as part of the returned attributes.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/interface.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">294</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">293</span>
+<span class="normal">294</span>
 <span class="normal">295</span>
 <span class="normal">296</span>
 <span class="normal">297</span>
@@ -2813,8 +2805,7 @@ included as part of the returned attributes.</p>
 <span class="normal">310</span>
 <span class="normal">311</span>
 <span class="normal">312</span>
-<span class="normal">313</span>
-<span class="normal">314</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">313</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_insert_tuple</span><span class="p">(</span>
     <span class="n">connection</span><span class="p">:</span> <span class="n">dj</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span>
     <span class="n">schema_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -2928,8 +2919,8 @@ dependencies that the user has access to.</p>
           </td>
           <td>
             <div class="doc-md-description">
-              <p>Sequence of filters as a list of dictionaries with keys
-"attributeName", "operation", and "value" defined, defaults to [].</p>
+              <p>Sequence of filters as a list of dictionaries with keys "attributeName",
+"operation", and "value" defined, defaults to [].</p>
             </div>
           </td>
           <td>
@@ -2965,7 +2956,8 @@ dependencies that the user has access to.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/interface.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">316</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">315</span>
+<span class="normal">316</span>
 <span class="normal">317</span>
 <span class="normal">318</span>
 <span class="normal">319</span>
@@ -3015,8 +3007,7 @@ dependencies that the user has access to.</p>
 <span class="normal">363</span>
 <span class="normal">364</span>
 <span class="normal">365</span>
-<span class="normal">366</span>
-<span class="normal">367</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">366</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_record_dependency</span><span class="p">(</span>
     <span class="n">connection</span><span class="p">:</span> <span class="n">dj</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span>
     <span class="n">schema_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -3031,8 +3022,8 @@ dependencies that the user has access to.</p>
 <span class="sd">        connection: User&#39;s DataJoint connection object.</span>
 <span class="sd">        schema_name: Name of the schema.</span>
 <span class="sd">        table_name: Table name under the given schema; must be in camel case.</span>
-<span class="sd">        restriction: Sequence of filters as a list of dictionaries with keys</span>
-<span class="sd">            &quot;attributeName&quot;, &quot;operation&quot;, and &quot;value&quot; defined, defaults to [].</span>
+<span class="sd">        restriction: Sequence of filters as a list of dictionaries with keys &quot;attributeName&quot;,</span>
+<span class="sd">            &quot;operation&quot;, and &quot;value&quot; defined, defaults to [].</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        List of tables that are dependent on specific records.</span>
@@ -3172,7 +3163,8 @@ dependencies that the user has access to.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/interface.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">369</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">368</span>
+<span class="normal">369</span>
 <span class="normal">370</span>
 <span class="normal">371</span>
 <span class="normal">372</span>
@@ -3196,8 +3188,7 @@ dependencies that the user has access to.</p>
 <span class="normal">390</span>
 <span class="normal">391</span>
 <span class="normal">392</span>
-<span class="normal">393</span>
-<span class="normal">394</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">393</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_update_tuple</span><span class="p">(</span>
     <span class="n">connection</span><span class="p">:</span> <span class="n">dj</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span>
     <span class="n">schema_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -3342,7 +3333,8 @@ dependencies that the user has access to.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/interface.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">396</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">395</span>
+<span class="normal">396</span>
 <span class="normal">397</span>
 <span class="normal">398</span>
 <span class="normal">399</span>
@@ -3380,8 +3372,7 @@ dependencies that the user has access to.</p>
 <span class="normal">431</span>
 <span class="normal">432</span>
 <span class="normal">433</span>
-<span class="normal">434</span>
-<span class="normal">435</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">434</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_delete_records</span><span class="p">(</span>
     <span class="n">connection</span><span class="p">:</span> <span class="n">dj</span><span class="o">.</span><span class="n">Connection</span><span class="p">,</span>
     <span class="n">schema_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -3485,8 +3476,7 @@ dependencies that the user has access to.</p>
           </td>
           <td>
             <div class="doc-md-description">
-              <p>Name of the table; for part tables, it should
-be in the format <code>Parent.Part</code>.</p>
+              <p>Name of the table; for part tables, it should be in the format <code>Parent.Part</code>.</p>
             </div>
           </td>
           <td>
@@ -3522,7 +3512,8 @@ be in the format <code>Parent.Part</code>.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/interface.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">437</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">436</span>
+<span class="normal">437</span>
 <span class="normal">438</span>
 <span class="normal">439</span>
 <span class="normal">440</span>
@@ -3543,9 +3534,7 @@ be in the format <code>Parent.Part</code>.</p>
 <span class="normal">455</span>
 <span class="normal">456</span>
 <span class="normal">457</span>
-<span class="normal">458</span>
-<span class="normal">459</span>
-<span class="normal">460</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">458</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_get_table_object</span><span class="p">(</span>
     <span class="n">schema_virtual_module</span><span class="p">:</span> <span class="n">VirtualModule</span><span class="p">,</span> <span class="n">table_name</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UserTable</span><span class="p">:</span>
@@ -3554,8 +3543,7 @@ be in the format <code>Parent.Part</code>.</p>
 
 <span class="sd">    Args:</span>
 <span class="sd">        schema_virtual_module: Virtual module for accessing the schema.</span>
-<span class="sd">        table_name: Name of the table; for part tables, it should</span>
-<span class="sd">            be in the format ``Parent.Part``.</span>
+<span class="sd">        table_name: Name of the table; for part tables, it should be in the format ``Parent.Part``.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        DataJoint table object of the specified table.</span>
@@ -3619,9 +3607,8 @@ be in the format <code>Parent.Part</code>.</p>
           </td>
           <td>
             <div class="doc-md-description">
-              <p>A filter as a dictionary with keys
-<code>attributeName</code>, <code>operation</code>, and <code>value</code> defined.
-Defaults to an empty dictionary.</p>
+              <p>A filter as a dictionary with keys <code>attributeName</code>, <code>operation</code>,
+and <code>value</code> defined. Defaults to an empty dictionary.</p>
             </div>
           </td>
           <td>
@@ -3671,7 +3658,9 @@ Defaults to an empty dictionary.</p>
 
           <details class="quote">
             <summary>Source code in <code>pharus/interface.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">462</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
 <span class="normal">463</span>
 <span class="normal">464</span>
 <span class="normal">465</span>
@@ -3705,18 +3694,14 @@ Defaults to an empty dictionary.</p>
 <span class="normal">493</span>
 <span class="normal">494</span>
 <span class="normal">495</span>
-<span class="normal">496</span>
-<span class="normal">497</span>
-<span class="normal">498</span>
-<span class="normal">499</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">496</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">_filter_to_restriction</span><span class="p">(</span><span class="n">attribute_filter</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">attribute_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts an attribute filter to a DataJoint-compatible restriction.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        attribute_filter (dict): A filter as a dictionary with keys</span>
-<span class="sd">            ``attributeName``, ``operation``, and ``value`` defined.</span>
-<span class="sd">            Defaults to an empty dictionary.</span>
+<span class="sd">        attribute_filter (dict): A filter as a dictionary with keys ``attributeName``, ``operation``,</span>
+<span class="sd">            and ``value`` defined. Defaults to an empty dictionary.</span>
 <span class="sd">        attribute_type (str): Attribute type.</span>
 
 <span class="sd">    Returns:</span>
