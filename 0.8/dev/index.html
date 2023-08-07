@@ -353,33 +353,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#extending-pharus-routes" class="md-nav__link">
-    Extending Pharus Routes
-  </a>
-  
-    <nav class="md-nav" aria-label="Extending Pharus Routes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#guide" class="md-nav__link">
-    Guide
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#creating-mkdocs-documentation" class="md-nav__link">
     Creating MkDocs Documentation
   </a>
@@ -581,10 +554,10 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+</div>
 <p>Deployment options currently being considered are <a href="https://docs.docker.com/compose/install/">Docker
 Compose</a> and
 <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/">Kubernetes</a>.</p>
-</div>
 <h2 id="run-locally-w-python">Run Locally w/ Python<a class="headerlink" href="#run-locally-w-python" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Set environment variables for port assignment (<code>PHARUS_PORT</code>,
@@ -626,100 +599,6 @@ Compose</a> and
 </code></pre></div></td></tr></table></div>
 </li>
 </ul>
-<h2 id="extending-pharus-routes">Extending Pharus Routes<a class="headerlink" href="#extending-pharus-routes" title="Permanent link">&para;</a></h2>
-<p>Pharus' routes can be extended through the spec sheet.</p>
-<h3 id="guide">Guide<a class="headerlink" href="#guide" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Define the YAML spec sheet. Under <code>SciViz.component_interface.override</code>, in a string block:</p>
-<ol>
-<li>Import the <code>type_map</code> and base components from the pharus <code>component.interface</code> module, as well as any other libraries needed.</li>
-<li>
-<p>Define a class that extends one of the base components. If extending <code>Component</code>, the rest verb must be manually set.</p>
-<p>- Within the class, define a <code>dj_query_route</code> method with the functionality of your custom route. Ensure it returns a dictionary.</p>
-</li>
-<li>
-<p>Extend the <code>type_map</code> with a mapping of the name of you want to give to the component to the new class.</p>
-<p>- The new name can now be used as a type in the <code>components</code> section of the spec.</p>
-</li>
-</ol>
-</li>
-<li>
-<p>Inject the spec into pharus</p>
-<ol>
-<li>Mount the spec sheet into the container.</li>
-<li>Set the <code>PHARUS_SPEC_PATH</code> environment variable.</li>
-</ol>
-</li>
-</ol>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">SciViz</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">auth</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database | oidc | none</span>
-<span class="w">  </span><span class="nt">component_interface</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">override</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no"># import `type_map`, the base components to be extended, and any other libraries necessary</span>
-<span class="w">      </span><span class="no">from pharus.component_interface import type_map, Component</span>
-
-<span class="w">      </span><span class="no"># define custom class extending a base component</span>
-<span class="w">      </span><span class="no">class ExampleComponent(Component):</span>
-<span class="w">          </span><span class="no"># set necessary REST verb(s) if extending generic `Component`</span>
-<span class="w">          </span><span class="no">rest_verb=[&quot;POST&quot;]</span>
-
-<span class="w">          </span><span class="no"># define `dj_query_route` method that returns some dictionary</span>
-<span class="w">          </span><span class="no">def dj_query_route(self):</span>
-<span class="w">              </span><span class="no"># some code</span>
-<span class="w">              </span><span class="no">return {&quot;example&quot;: &quot;example response&quot;}</span>
-
-<span class="w">      </span><span class="no"># extend the `type_map` with a custom type mapped to the custom component</span>
-<span class="w">      </span><span class="no">type_map = {</span>
-<span class="w">          </span><span class="no">**type_map, &#39;ExampleType&#39;: ExampleComponent</span>
-<span class="w">      </span><span class="no">}</span>
-<span class="w">  </span><span class="nt">pages</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">page</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">route</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/page</span>
-<span class="w">      </span><span class="nt">hidden</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">grids</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">grid</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fixed</span>
-<span class="w">          </span><span class="nt">components</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">example_component</span><span class="p">:</span>
-<span class="w">              </span><span class="nt">route</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/example_route</span>
-<span class="w">              </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExampleType</span>
-</code></pre></div></td></tr></table></div>
-<p>For more information about the spec sheet, visit the <a href="https://datajoint.com/docs/core/sci-viz/2.3/concepts/spec_sheet/">SciViz docs</a>.</p>
 <h2 id="creating-mkdocs-documentation">Creating MkDocs Documentation<a class="headerlink" href="#creating-mkdocs-documentation" title="Permanent link">&para;</a></h2>
 <p>Run the following command with the appropriate parameters:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="go">MODE=&quot;LIVE|QA|PUSH&quot; PACKAGE=pharus UPSTREAM_REPO=https://github.com/datajoint/pharus.git HOST_UID=$(id -u) docker compose -f docs/docker-compose.yaml up --build</span>
